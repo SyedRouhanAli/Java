@@ -1,0 +1,56 @@
+import java.sql.SQLOutput;
+
+class Node{
+    int data;
+    Node next;
+}
+
+class Stack{
+    Node top;
+
+    Stack(){
+        top=null;
+    }
+
+    void push(int d){
+        Node n = new Node();
+        n.data=d;
+        n.next=null;
+
+        if (top==null){
+            top=n;
+        }
+        else {
+            top=n.next;
+            top= n;
+        }
+        System.out.println(d +" Has been inserted into the list");
+    }
+    int pop(){
+        int td= top.data;
+        if (top==null){
+            System.out.println(" Empty");
+        }
+        else{
+            top=top.next;
+        }
+        System.out.println(td + " Has been popped out ");
+        return td;
+    }
+    void display(){
+        Node td = top;
+        while(td !=null){
+            System.out.println(td.data + "-->>");
+            td= td.next;
+        }
+    }
+
+}
+class main{
+    public static void main(String[] args) {
+        Stack S = new Stack();
+        S.push(7);
+        S.push(6);
+        S.pop();
+    }
+}
